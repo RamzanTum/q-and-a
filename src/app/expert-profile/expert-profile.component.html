@@ -1,0 +1,39 @@
+<div class="container is-max-desktop">
+  <div class="card-content">
+    <p class="title">{{ expert.name }}</p>
+    <p class="is-size-5">Knowledge: {{ expert.specialization }}</p>
+    <p class="is-size-5">
+      Price per question:
+      {{ 3 | currency }}
+    </p>
+
+    <p class="is-size-5 mt-4">Qualification:</p>
+    <div class="content">
+      Qualification
+
+      <form #questionForm="ngForm" (ngSubmit)="submitQuestion()">
+        <textarea
+          required
+          [(ngModel)]="question"
+          name="question"
+          class="textarea is-small mt-5"
+          maxlength="500"
+          placeholder="Question"
+        ></textarea>
+        <p *ngIf="submitSuccess" class="help is-success">
+          Question was submitted successfully!
+        </p>
+        <p *ngIf="submitError" class="help is-danger">
+          Oops, something went wrong. Please try again later.
+        </p>
+        <button
+          type="submit"
+          class="button is-info mt-3"
+          [disabled]="!questionForm.form.valid"
+        >
+          Submit your Question
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

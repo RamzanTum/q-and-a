@@ -8,19 +8,25 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ExpertsComponent} from './expert/experts.component';
 import {QuestionsComponent} from './questions/questions.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ExpertListItemComponent } from './expert-list-item/expert-list-item.component';
+import { ExpertProfileComponent } from './expert-profile/expert-profile.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ExpertsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    ExpertListItemComponent,
+    ExpertProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ExpertsService} from "../service/experts/experts.service";
-import {Observable, of} from "rxjs";
+import {Observable, of, tap} from "rxjs";
 import {Expert} from "../model/Expert";
 
 @Component({
@@ -10,10 +10,11 @@ import {Expert} from "../model/Expert";
 })
 export class ExpertsComponent implements OnInit {
   experts: Observable<Expert[]> = of([]);
+  selectedExpert!: Expert;
 
   constructor(private expertsService: ExpertsService) { }
 
   ngOnInit(): void {
-    this.experts = this.expertsService.loadExperts();
+    this.experts = this.expertsService.loadExperts().pipe(tap(data=> this.selectedExpert = data[0]));
   }
 }
