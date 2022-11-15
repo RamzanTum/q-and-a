@@ -12,6 +12,10 @@ export class QuestionService {
   constructor(private http: HttpClient) {
   }
 
+  loadQuestions(): Observable<Question[]> {
+    return this.http.get<Question[]>(QuestionService.QestionsURL);
+  }
+
   submitQuestion(question: Question): Observable<Question> {
     return this.http.post<Question>(QuestionService.QestionsURL, question);
   }

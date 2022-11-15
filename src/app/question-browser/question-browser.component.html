@@ -1,0 +1,19 @@
+<div *ngIf="questions$ | async as questions">
+<section *ngIf="questions.length > 0; else empty" class="container center is-fullhd is-center">
+  <div class="columns is-tablet mt-2 mx-2">
+    <div class="column">
+      <div class="box content">
+        <app-question-list-item
+          *ngFor="let question of questions"
+          [question]="question"
+          class="post">
+        </app-question-list-item>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<ng-template #empty class="help subtitle is-5 is-info">
+  You have not asked any questions yet.
+</ng-template>
