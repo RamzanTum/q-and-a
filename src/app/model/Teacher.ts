@@ -1,5 +1,5 @@
 export interface Teacher {
   id: number;
   name: string;
-  specialization: string;
+  subjects: string;
 }

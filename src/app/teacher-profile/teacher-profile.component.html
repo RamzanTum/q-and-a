@@ -1,16 +1,9 @@
 <div class="container is-max-desktop">
   <div class="card-content">
-    <p class="title">{{ teacher.name }}</p>
-    <p class="is-size-5">Knowledge: {{ teacher.specialization }}</p>
-    <p class="is-size-5">
-      Price per question:
-      {{ 3 | currency }}
-    </p>
+    <p class="is-size-4 has-text-weight-bold">{{ teacher.name }}</p>
+    <p class="is-size-6">Subjects: {{ teacher.subjects }}</p>
 
-    <p class="is-size-5 mt-4">Qualification:</p>
     <div class="content">
-      Qualification
-
       <form #questionForm="ngForm" (ngSubmit)="submitQuestion()">
         <textarea
           required

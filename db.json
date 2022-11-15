@@ -3,7 +3,7 @@
     { "id": 1, "question": "This is my first question" }
   ],
   "teachers": [
-    { "id": 1, "name": "John Doe", "specialization" : "Mat" },
-    { "id": 2, "name": "Max Mustermann", "specialization" : "Biology" }
+    { "id": 1, "name": "John Doe", "subjects" : "Math, Computer Science" },
+    { "id": 2, "name": "Max Mustermann", "subjects" : "Biology, Geography" }
   ]
 }
