@@ -9,12 +9,12 @@ import {Teacher} from "../model/Teacher";
   styleUrls: ['./teacher-browser.component.css']
 })
 export class TeacherBrowserComponent implements OnInit {
-  teachers: Observable<Teacher[]> = of([]);
+  teachers$: Observable<Teacher[]> = of([]);
   selectedTeacher!: Teacher;
 
   constructor(private teacherService: TeacherService) { }
 
   ngOnInit(): void {
-    this.teachers = this.teacherService.loadTeachers().pipe(tap(data=> this.selectedTeacher = data[0]));
+    this.teachers$ = this.teacherService.loadTeachers().pipe(tap(data=> this.selectedTeacher = data[0]));
   }
 }
