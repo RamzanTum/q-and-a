@@ -4,11 +4,11 @@ import {Observable, of, tap} from "rxjs";
 import {Teacher} from "../model/Teacher";
 
 @Component({
-  selector: 'app-teacher',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  selector: 'app-teacher-browser',
+  templateUrl: './teacher-browser.component.html',
+  styleUrls: ['./teacher-browser.component.css']
 })
-export class TeacherComponent implements OnInit {
+export class TeacherBrowserComponent implements OnInit {
   teachers: Observable<Teacher[]> = of([]);
   selectedTeacher!: Teacher;
 
