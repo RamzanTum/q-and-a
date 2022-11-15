@@ -1,4 +1,4 @@
-export interface Expert {
+export interface Teacher {
   id: number;
   name: string;
   specialization: string;

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpertListItemComponent } from './expert-list-item.component';
+import { TeacherProfileComponent } from './teacher-profile.component';
 
-describe('ExpertListItemComponent', () => {
-  let component: ExpertListItemComponent;
-  let fixture: ComponentFixture<ExpertListItemComponent>;
+describe('TeacherProfileComponent', () => {
+  let component: TeacherProfileComponent;
+  let fixture: ComponentFixture<TeacherProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpertListItemComponent ]
+      declarations: [ TeacherProfileComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExpertListItemComponent);
+    fixture = TestBed.createComponent(TeacherProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,15 +2,15 @@
   <div class="columns is-tablet mt-2 mx-2">
     <div class="column is-one-third-desktop is-one-third-tablet p-0 m-3">
       <app-expert-list-item
-        *ngFor="let expert of experts | async"
+        *ngFor="let expert of teachers | async"
         [expert]="expert"
-        (click)="selectedExpert = expert"
+        (click)="selectedTeacher = expert"
       ></app-expert-list-item>
     </div>
     <div class="column card has-background-primary-light m-3 stick-to-screen">
       <app-expert-profile
-        *ngIf="selectedExpert"
-        [expert]="selectedExpert"
+        *ngIf="selectedTeacher"
+        [expert]="selectedTeacher"
       ></app-expert-profile>
     </div>
   </div>
