@@ -1,1 +1,4 @@
-<p>expert works!</p>
+<div *ngFor="let expert of experts | async">
+  {{expert.name}}
+  {{expert.specialization}}
+</div>

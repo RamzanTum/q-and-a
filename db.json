@@ -1,5 +1,9 @@
 {
   "questions": [
     { "id": 1, "question": "This is my first question" }
+  ],
+  "experts": [
+    { "id": 1, "name": "John Doe", "specialization" : "Finance" },
+    { "id": 2, "name": "Max Mustermann", "specialization" : "Business" }
   ]
 }
