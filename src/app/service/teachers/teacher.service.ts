@@ -6,13 +6,13 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class TeachersService {
+export class TeacherService {
   private static readonly TeachersURL = 'http://localhost:3000/teachers';
 
   constructor(private http: HttpClient) {
   }
 
   loadTeachers(): Observable<Teacher[]> {
-    return this.http.get<Teacher[]>(TeachersService.TeachersURL);
+    return this.http.get<Teacher[]>(TeacherService.TeachersURL);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TeachersService} from "../service/teachers/teachers.service";
+import {TeacherService} from "../service/teachers/teacher.service";
 import {Observable, of, tap} from "rxjs";
 import {Teacher} from "../model/Teacher";
 
@@ -12,9 +12,9 @@ export class TeacherBrowserComponent implements OnInit {
   teachers: Observable<Teacher[]> = of([]);
   selectedTeacher!: Teacher;
 
-  constructor(private teachersService: TeachersService) { }
+  constructor(private teacherService: TeacherService) { }
 
   ngOnInit(): void {
-    this.teachers = this.teachersService.loadTeachers().pipe(tap(data=> this.selectedTeacher = data[0]));
+    this.teachers = this.teacherService.loadTeachers().pipe(tap(data=> this.selectedTeacher = data[0]));
   }
 }

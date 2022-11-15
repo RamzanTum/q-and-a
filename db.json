@@ -1,9 +1,28 @@
 {
   "questions": [
-    { "id": 1, "question": "This is my first question" }
+    {
+      "id": 1,
+      "question": "This is my first question"
+    },
+    {
+      "question": "this the question",
+      "id": 2
+    },
+    {
+      "question": "This is my second question",
+      "id": 3
+    }
   ],
   "teachers": [
-    { "id": 1, "name": "John Doe", "subjects" : "Math, Computer Science" },
-    { "id": 2, "name": "Max Mustermann", "subjects" : "Biology, Geography" }
+    {
+      "id": 1,
+      "name": "John Doe",
+      "subjects": "Math, Computer Science"
+    },
+    {
+      "id": 2,
+      "name": "Max Mustermann",
+      "subjects": "Biology, Geography"
+    }
   ]
 }
