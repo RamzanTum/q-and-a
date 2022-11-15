@@ -1,17 +1,17 @@
 <div class="container ">
   <div class="columns is-tablet mt-2 mx-2">
     <div class="column is-one-third-desktop is-one-third-tablet p-0 m-3">
-      <app-expert-list-item
-        *ngFor="let expert of teachers | async"
-        [expert]="expert"
-        (click)="selectedTeacher = expert"
-      ></app-expert-list-item>
+      <app-teacher-list-item
+        *ngFor="let teacher of teachers | async"
+        [teacher]="teacher"
+        (click)="selectedTeacher = teacher"
+      ></app-teacher-list-item>
     </div>
     <div class="column card has-background-primary-light m-3 stick-to-screen">
-      <app-expert-profile
+      <app-teacher-profile
         *ngIf="selectedTeacher"
-        [expert]="selectedTeacher"
-      ></app-expert-profile>
+        [teacher]="selectedTeacher"
+      ></app-teacher-profile>
     </div>
   </div>
 </div>
