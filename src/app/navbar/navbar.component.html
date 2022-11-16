@@ -1,5 +1,14 @@
-<nav class="navbar is-info navbar-center" role="navigation" aria-label="main navigation">
-  <div id="navbarBasicExample" class="navbar-menu">
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" (click)="toggleNavbarElements()" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu"
+       [ngClass]="{ 'is-active': showHiddenMenu }">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center">
       <a class="navbar-item" routerLink="/teachers">
         Teachers

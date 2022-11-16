@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Teacher} from "../model/Teacher";
 import {Question} from "../model/Question";
 import {QuestionService} from "../service/question/question.service";

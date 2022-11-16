@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  showHiddenMenu = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleNavbarElements() {
+    this.showHiddenMenu = !this.showHiddenMenu;
+  }
 }
