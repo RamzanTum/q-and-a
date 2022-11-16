@@ -1,23 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { QuestionListItemComponent } from './question-list-item.component';
-
+import {QuestionListItemComponent} from './question-list-item.component';
+import {render, screen} from "@testing-library/angular";
+import {Question} from "../model/Question";
 describe('QuestionListItemComponent', () => {
-  let component: QuestionListItemComponent;
-  let fixture: ComponentFixture<QuestionListItemComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ QuestionListItemComponent ]
-    })
-    .compileComponents();
+  it('should create', async () => {
+    await render(QuestionListItemComponent, {
+      componentProperties: {
+        question: {
+          question: "This is the question.",
+        } as Question,
+      },
+    });
 
-    fixture = TestBed.createComponent(QuestionListItemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(screen.getByText('This is the question.')).toBeTruthy();
   });
 });
