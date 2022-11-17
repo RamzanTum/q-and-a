@@ -1,23 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render, screen } from '@testing-library/angular';
 import { NavbarComponent } from './navbar.component';
 
+
 describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+  it('should notify parent when login clicked', async () => {
+    let emitted = false;
+    const { fixture, detectChanges } = await render(NavbarComponent)
+    fixture.componentInstance.loginClicked.subscribe(() => (emitted = true));
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
-    })
-    .compileComponents();
+    screen.getByText('Login').click();
+    detectChanges();
 
-    fixture = TestBed.createComponent(NavbarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(screen.getByText('Logout')).toBeVisible()
+    expect(emitted).toBe(true);
   });
 });

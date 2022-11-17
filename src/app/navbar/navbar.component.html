@@ -9,13 +9,30 @@
 
   <div id="navbarBasicExample" class="navbar-menu"
        [ngClass]="{ 'is-active': showHiddenMenu }">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+    <div class="navbar-start">
       <a class="navbar-item" routerLink="/teachers">
         Teachers
       </a>
 
       <a class="navbar-item" routerLink="/questions">
         Questions
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <a
+        *ngIf="!isUserLoggedIn"
+        (click)="onLoginButtonClicked()"
+        class="navbar-item"
+      >
+        Login
+      </a>
+      <a
+        *ngIf="isUserLoggedIn"
+        (click)="onLogoutButtonClicked()"
+        class="navbar-item"
+      >
+        Logout
       </a>
     </div>
   </div>
