@@ -12,6 +12,7 @@ import { TeacherProfileComponent } from './teacher-profile/teacher-profile.compo
 import {FormsModule} from "@angular/forms";
 import { QuestionBrowserComponent } from './question-browser/question-browser.component';
 import { QuestionListItemComponent } from './question-list-item/question-list-item.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { QuestionListItemComponent } from './question-list-item/question-list-it
     TeacherListItemComponent,
     TeacherProfileComponent,
     QuestionBrowserComponent,
-    QuestionListItemComponent
+    QuestionListItemComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
