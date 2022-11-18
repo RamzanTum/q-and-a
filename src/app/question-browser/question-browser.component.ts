@@ -10,7 +10,6 @@ import {Observable, of} from "rxjs";
 })
 export class QuestionBrowserComponent implements OnInit {
   questions$: Observable<Question[]> = of([]);
-  noQuestionsMessage = false;
   constructor(private questionService: QuestionService) { }
 
   ngOnInit(): void {

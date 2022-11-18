@@ -11,14 +11,16 @@ import { of } from "rxjs";
 import { Question } from "./model/Question";
 import userEvent from "@testing-library/user-event";
 import { NavbarComponent } from "./navbar/navbar.component";
-import { CommonModule } from "@angular/common";
+import { QuestionListItemComponent } from "./question-list-item/question-list-item.component";
 
 describe('AppComponent', () => {
-  it('should show all questions if selected all questions option', async () => {
-    const { container, questionService } = await renderComponent();
+  it('should show all questions if selected questions from the navbar', async () => {
+    const { questionService, teacherService } = createMocks();
     questionService.loadQuestions.mockReturnValue(
       of([{} as Question, {} as Question])
     );
+    const { container } = await renderWithMock(questionService, teacherService);
+
     const allQuestionsLink = screen.getByText('Questions');
 
     await userEvent.click(allQuestionsLink);
@@ -45,8 +47,9 @@ describe('AppComponent', () => {
         ]),
       ],
       declarations: [
+        QuestionBrowserComponent,
+        QuestionListItemComponent,
         NavbarComponent,
-        CommonModule,
         MockComponent(SignInComponent),
       ],
       componentProviders: [
@@ -62,14 +65,5 @@ describe('AppComponent', () => {
     });
 
     return { container, detectChanges };
-  }
-
-  async function renderComponent() {
-    const { questionService, teacherService } = createMocks();
-    const { container, detectChanges } = await renderWithMock(
-      questionService,
-      teacherService
-    );
-    return { container, detectChanges, questionService, teacherService };
   }
 });
