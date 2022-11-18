@@ -1,23 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { QuestionBrowserComponent } from './question-browser.component';
+import { of } from "rxjs";
+import { Question } from "../model/Question";
+import { render, screen } from "@testing-library/angular";
+import { createMock, Mock } from "@testing-library/angular/jest-utils";
+import { QuestionService } from "../service/question/question.service";
+import { QuestionListItemComponent } from "../question-list-item/question-list-item.component";
 
 describe('QuestionBrowserComponent', () => {
-  let component: QuestionBrowserComponent;
-  let fixture: ComponentFixture<QuestionBrowserComponent>;
+  it('should show all questions if selected all questions option', async () => {
+    const questionService: Mock<QuestionService> = createMock(QuestionService);
+    questionService.loadQuestions.mockReturnValue(
+      of([
+        {id: 1, question: 'This is the question'} as Question,
+        {id: 2, question: 'This is the second question'} as Question
+      ])
+    );
+    const { detectChanges } = await renderWithMock(questionService);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ QuestionBrowserComponent ]
-    })
-    .compileComponents();
+    detectChanges();
 
-    fixture = TestBed.createComponent(QuestionBrowserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    expect(screen.getByText('This is the question')).toBeVisible()
+    expect(screen.getByText('This is the second question')).toBeVisible()
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  async function renderWithMock(
+    questionService: Mock<QuestionService>,
+  ) {
+    const { detectChanges } = await render(QuestionBrowserComponent, {
+      componentProviders: [
+        {
+          provide: QuestionService,
+          useValue: questionService,
+        },
+      ],
+      declarations: [
+        QuestionListItemComponent,
+      ],
+    });
+
+    return { detectChanges };
+  }
 });
