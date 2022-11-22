@@ -13,6 +13,7 @@ import { FormsModule } from "@angular/forms";
 import { QuestionBrowserComponent } from './question-browser/question-browser.component';
 import { QuestionListItemComponent } from './question-list-item/question-list-item.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { PennyToDollarPipe } from "./pipe/penny-to-dollar/penny-to-dollar.pipe";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     TeacherProfileComponent,
     QuestionBrowserComponent,
     QuestionListItemComponent,
+    PennyToDollarPipe,
     SignInComponent
   ],
   imports: [
