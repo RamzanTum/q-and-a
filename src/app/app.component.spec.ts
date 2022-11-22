@@ -14,12 +14,11 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { QuestionListItemComponent } from "./question-list-item/question-list-item.component";
 
 describe('AppComponent', () => {
-  it('should show all questions if selected questions from the navbar', async () => {
-    const { questionService, teacherService } = createMocks();
+  it('should show all questions when user navigates to question browser component', async () => {
+    const { questionService, container } = await renderComponent();
     questionService.loadQuestions.mockReturnValue(
       of([{} as Question, {} as Question])
     );
-    const { container } = await renderWithMock(questionService, teacherService);
 
     const allQuestionsLink = screen.getByText('Questions');
 
@@ -29,18 +28,11 @@ describe('AppComponent', () => {
     expect(container.querySelectorAll('app-question-list-item').length).toBe(2);
   });
 
-  function createMocks() {
+  async function renderComponent() {
     const questionService: Mock<QuestionService> = createMock(QuestionService);
     const teacherService: Mock<TeacherService> = createMock(TeacherService);
 
-    return { questionService, teacherService };
-  }
-
-  async function renderWithMock(
-    questionService: Mock<QuestionService>,
-    teacherService: Mock<TeacherService>
-  ) {
-    const { container, detectChanges } = await render(AppComponent, {
+    const { container } = await render(AppComponent, {
       imports: [
         RouterTestingModule.withRoutes([
           { path: 'questions', component: QuestionBrowserComponent },
@@ -64,6 +56,6 @@ describe('AppComponent', () => {
       ],
     });
 
-    return { container, detectChanges };
+    return { container, questionService };
   }
 });
