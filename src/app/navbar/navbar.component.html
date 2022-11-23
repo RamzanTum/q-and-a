@@ -21,18 +21,10 @@
 
     <div class="navbar-end">
       <a
-        *ngIf="!isUserLoggedIn"
         (click)="onLoginButtonClicked()"
         class="navbar-item"
       >
         Login
-      </a>
-      <a
-        *ngIf="isUserLoggedIn"
-        (click)="onLogoutButtonClicked()"
-        class="navbar-item"
-      >
-        Logout
       </a>
     </div>
   </div>

@@ -9,7 +9,7 @@ import { TeacherBrowserComponent } from './teacher/teacher-browser.component';
 import { HttpClientModule } from "@angular/common/http";
 import { TeacherListItemComponent } from './teacher-list-item/teacher-list-item.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { QuestionBrowserComponent } from './question-browser/question-browser.component';
 import { QuestionListItemComponent } from './question-list-item/question-list-item.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -32,7 +32,8 @@ import { PennyToDollarPipe } from "./pipe/penny-to-dollar/penny-to-dollar.pipe";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

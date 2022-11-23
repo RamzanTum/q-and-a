@@ -1,3 +1,4 @@
-<app-navbar></app-navbar>
-<app-sign-in></app-sign-in>
+<app-navbar (loginClicked)="singInComponent.showDialog = true"></app-navbar>
+
+<app-sign-in #singInComponent></app-sign-in>
 <router-outlet></router-outlet>
