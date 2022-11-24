@@ -5,12 +5,11 @@
 
     <div class="content">
       <form #questionForm="ngForm" (ngSubmit)="submitQuestion()">
-        <textarea
+        <textarea style="height: 1500px"
           required
           [(ngModel)]="question"
           name="question"
           class="textarea is-small mt-5"
-          maxlength="500"
           placeholder="Question"
         ></textarea>
         <p *ngIf="submitSuccess" class="help is-success">
