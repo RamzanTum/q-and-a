@@ -21,7 +21,7 @@ describe('TeacherProfileComponent', () => {
     const { detectChanges, questionService } = await renderComponent();
     questionService.submitQuestion.mockReturnValue(of({} as Question));
 
-    const questionTextArea = screen.getByPlaceholderText('Question');
+    const questionTextArea: HTMLTextAreaElement = screen.getByPlaceholderText('Question');
     const submitButton = screen.getByRole('button', {
       name: /Submit your question/i,
     });
@@ -34,6 +34,7 @@ describe('TeacherProfileComponent', () => {
     let infoMessage = screen.getByText('Question was submitted successfully!');
     expect(infoMessage).toBeVisible();
     expect(infoMessage).toHaveClass('is-success');
+    expect(questionTextArea.value).toEqual('');
   });
 
   it('should be possible to see error message on submit fail', async () => {
