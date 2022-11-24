@@ -5,7 +5,7 @@
 
     <div class="content">
       <form #questionForm="ngForm" (ngSubmit)="submitQuestion()">
-        <textarea style="height: 1500px"
+        <textarea
           required
           [(ngModel)]="question"
           name="question"
