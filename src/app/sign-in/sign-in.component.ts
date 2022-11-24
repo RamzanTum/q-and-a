@@ -5,12 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit{
-  @Input() showDialog = false;
-
-  ngOnInit(): void {
-    this.showDialog = true;
-  }
+export class SignInComponent {
+  showDialog = false;
 
   loginUser() {
     this.showDialog = false;

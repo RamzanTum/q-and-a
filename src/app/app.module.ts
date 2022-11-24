@@ -33,7 +33,6 @@ import { PennyToDollarPipe } from "./pipe/penny-to-dollar/penny-to-dollar.pipe";
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

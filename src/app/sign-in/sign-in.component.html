@@ -4,10 +4,10 @@
     <header class="modal-card-head">
       <p class="modal-card-title">Login</p>
       <button
+        data-testid="close-dialog-button"
         class="delete"
         type="button"
         (click)="hideForm()"
-        aria-label="close"
       ></button>
     </header>
     <section class="modal-card-body">
@@ -35,7 +35,7 @@
     </section>
 
     <footer class="modal-card-foot">
-      <button (click)="loginUser()" class="button is-success">Submit</button>
+      <button (click)="loginUser()" class="button is-info">Submit</button>
       <button class="button" type="button" (click)="hideForm()">Cancel</button>
     </footer>
   </div>
