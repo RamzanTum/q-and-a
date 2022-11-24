@@ -73,7 +73,7 @@ describe('TeacherProfileComponent', () => {
 
     await userEvent.click(submitButton);
 
-    expect(submitButton).toHaveAttribute('disabled');
+    expect(submitButton).toBeDisabled()
     expect(questionService.submitQuestion).toHaveBeenCalledTimes(0);
   });
 
